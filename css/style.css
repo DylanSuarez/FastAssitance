@@ -1,0 +1,233 @@
+/* https://css-tricks.com/responsive-data-tables */
+
+
+
+/*! ******************** custom properties ******************** !*/
+:root
+{
+  --main-color: rgb(0, 187, 255);
+  --main-second-color: rgba(0, 187, 255, 0.75);
+  
+
+  --black_and_white-1-color: #000000;
+  --black_and_white-2-color: #292929;
+  --black_and_white-3-color: #4e4e4e;
+  --black_and_white-4-color: #777777;
+  --black_and_white-5-color: #a2a2a2;
+  --black_and_white-6-color: #d0d0d0;
+  --black_and_white-7-color: #ffffff;
+}
+
+
+
+
+
+/*! ******************** Reset CSS ******************** !*/
+html { box-sizing: border-box; font-size: 16px; line-height: 1.6; scroll-behavior: smooth; }
+
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+body { margin: 0; overflow-x: hidden; text-rendering: optimizeSpeed; font-family: 'Open Sans', sans-serif; color: var(--black_and_white-1-color); }
+
+h1 { margin: 0; font-size: 2rem; }
+h2 { margin: 0; font-size: 1.5rem; }
+h3 { margin: 0; font-size: 1.25; }
+h4 { margin: 0; font-size: 1rem; }
+h5 { margin: 0; font-size: 0.85rem; }
+h6 { margin: 0; font-size: 0.7rem; }
+
+img {max-width: 100%; height: auto; }
+
+ul { list-style: none; margin: 0; }
+
+th, td { padding: 0; }
+
+a { text-decoration: none; transition-property: background, opacity; transition-duration: 0.3s; transition-timing-function: ease-in-out;}
+/* a:hover { opacity: 0.75; } */
+
+[id] { scroll-margin-top: 2ex; }
+
+
+
+
+
+/*! ******************** Header ******************** !*/
+.header
+{
+  min-width: 320px;
+  min-height: 3rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: -1px 1px 6px var(--black_and_white-5-color);
+  background-color: var(--black_and_white-7-color);
+}
+.header_container {
+  max-width: 1200px;
+  min-width: 320px;
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo a{
+  display: flex;
+  align-items: center;
+}
+.menu {
+  display: none;
+}
+.btn_menu {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+/*! ******************** Login and Register ******************** !*/
+
+.body-reglog {
+  background-color: var(--main-color);
+}
+.container-reglog{
+  width: 100%;
+  height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reglog {
+  width: 800px;
+  height: 500px;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  display: flex;
+}
+.illustration-reglog {
+  width: 400px;
+  display: flex;
+  align-items: center;
+}
+.illustration-reglog img {
+  width: 100%;
+}
+.form-reglog {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-reglog form {
+  width: 320px;
+}
+.form-reglog form h2 {
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.reglog-email, 
+.reglog-contraseña, 
+.reglog-nombre {
+  background-color: #F5F5F5;
+  border-style: none;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 3px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: #555;
+}
+.reglog-email::placeholder,
+.reglog-contraseña::placeholder,
+.reglog-nombre::placeholder {
+  color: #555;
+}
+.reglog-submit {
+  width: 120px;
+  background-color: var(--main-color);
+  font-size: 14px;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 3px;
+  color: #ffffff;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.form-reglog span {
+  display: block;
+  margin-top: 8px;
+  color: #555;
+  font-size: 14px;
+}
+.form-reglog span a {
+  color: var(--main-color);
+}
+
+
+
+
+
+/*! ******************** Media Queries ******************** !*/
+
+@media screen and (min-width: 480px)
+{
+}
+@media screen and (min-width: 600px)
+{
+}
+@media screen and (min-width: 768px)
+{
+
+}
+@media screen and (min-width: 1024px)
+{
+  .header {
+    height: 4rem;
+  }
+  .header_container {
+    padding: 0;
+    height: 4rem;
+  }
+  .btn_menu {
+    display: none;
+  }
+  .menu {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu a {
+    margin-left: 8px;
+    margin-right: 8px;
+    color: #000;
+    padding: 4px;
+    border-radius: 1rem;
+  }
+  .menu a:last-child {
+    border: 1px solid var(--main-color);
+  }
+  .menu a:hover {
+    background-color: var(--main-color);
+  }
+  
+}
+@media screen and (min-width: 1200px)
+{
+  
+}
