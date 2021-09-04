@@ -104,10 +104,40 @@ a { text-decoration: none; transition-property: background, opacity; transition-
 .menu {
   display: none;
 }
+.hamburger {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(177, 177, 177, 0.3)
+}
+.hamburger a {
+  color: var(--blank-color-1);
+  font-weight: bold;
+  padding: var(--pd-8);
+  margin-top: var(--mg-4);
+  margin-bottom: var(--mg-4);
+  border-radius: 4px;
+}
+.hamburger a:hover {
+  background-color: var(--main-second-color);
+}
 .btn_menu {
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: var(--pd-0);
+  background: none;
+  border: none;
+  position: relative;
+  z-index: 100;
 }
 
 

@@ -22,16 +22,15 @@
           <a href="#">Acerca</a>
           <a href="#">Equípo</a>
           <a href="#">Contacto</a>
-          <a href="../html/login.html">Inicia sesión</a>
+          <a href="./login.html">Inicia sesión</a>
         </nav>
-        <span class="btn_menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-filter-left" viewBox="0 0 16 16">
+        <button class="btn_menu">
+          <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-filter-left" viewBox="0 0 16 16">
             <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
           </svg>
-        </span>
+        </button>
       </div>
     </header>
-    
     
     <section class="container-reglog">
       <div class="reglog">
@@ -41,7 +40,7 @@
             <input class="reglog-email" type="email" id="reglog-email" placeholder="Nombre" required>
             <input class="reglog-nombre" type="text" id="reglog-name" placeholder="Email" required>
             <input class="reglog-contraseña" type="password" id="reglog-contraseña" placeholder="Contraseña" required>
-            <input class="reglog-contraseña" type="password" id="reglog-contraseña" placeholder="Confirma Contraseña" required>
+            <input class="reglog-contraseña" type="password" id="reglog-confirm" placeholder="Confirma Contraseña" required>
             <input class="reglog-submit" type="submit" id="reglog-submit" value="Registrarse">
             <span>YA ESTAS REGISTRADO? <a href="login.html">INICIA SESIÓN</a></span>
           </form>
@@ -52,5 +51,7 @@
       </div>
     </section>
   </div>
+
+  <script src="../js/main.js" type="module"></script>
 </body>
 </html>

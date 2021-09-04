@@ -1,11 +1,11 @@
-
-
-
-
 const d = document;
 
-import darkTheme from './dark-mode.js'
+
+
+import {menuHamburger} from "./menu.js";
 
 d.addEventListener('DOMContentLoaded', (e) => {
-  darkTheme('switch_dark', 'clasetoggle');
+  
+  menuHamburger(".svg", ".menu");
+
 });
