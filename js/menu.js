@@ -3,14 +3,15 @@ const d = document;
 
 
 
-export const menuHamburger = function (btn) {
+export const menuHamburger = function (btn, menuHam) {
   
   
   d.addEventListener("click", e => {
+    const menu = d.querySelector(menuHam);
     if (e.target.matches(btn)) {
-      const menu = d.querySelector(".menu")
-      console.log("hola");
       menu.classList.toggle("hamburger");
     };
   });
+
+  
 };
