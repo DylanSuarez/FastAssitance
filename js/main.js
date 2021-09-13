@@ -7,7 +7,7 @@ import {sidebarCollapse} from "./sidebar.js"
 
 d.addEventListener('DOMContentLoaded', (e) => {
   
-  menuHamburger(".btn_menu svg", ".btn_menu path", ".menu");
+  menuHamburger(".btn_menu img", ".menu");
   sidebarCollapse(".btn-sidebar img");
 
 });

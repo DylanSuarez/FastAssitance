@@ -3,12 +3,12 @@ const d = document;
 
 
 
-export const menuHamburger = function (btnSvg, btnPath, menuHam) {
+export const menuHamburger = function (btn, menuHam) {
   
   const menu = d.querySelector(menuHam);
   
   d.addEventListener("click", e => {
-    if (e.target.matches(btnSvg) || e.target.matches(btnPath)) {
+    if (e.target.matches(btn)) {
       menu.classList.toggle("hamburger");
     };
   });
