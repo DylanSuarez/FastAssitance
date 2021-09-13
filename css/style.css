@@ -344,42 +344,104 @@ a { text-decoration: none; transition-property: background, opacity; transition-
 
 
   /*! ******************** Home ******************** !*/
-  /* ******************** Container-Home ******************** !*/
-  .container-home {
+
+  /* ******************** Container-Home ******************** */
+  .home {
     width: 100%;
+    min-width: 320px;
     height: 100vh;
-    position: relative;
-    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: minmax(60px, max-content) 1fr;
+    grid-template-rows: 48px 1fr;
+    grid-template-areas: 
+    "sidebar header"
+    "sidebar contenido"
+    "sidebar contenido";
   }
 
-  /* ******************** Sidebar-Home ******************** !*/
+  
+  /* ******************** Header-Home ******************** */
+  .header-home {
+    grid-area: header;
+    background-color: var(--white-color-1);
+    box-shadow: 0 1px 8px var(--white-color-4);
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: var(--pd-16);
+    padding-right: var(--pd-16);
+  }
+  .btn-sidebar {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+
+  /* ******************** Admin-Home ******************** */
+  .admin {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 3rem;
+    gap: 1rem;
+  }
+  .notifi-icon {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+  }
+  .admin-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+  .info-admin {
+    cursor: pointer;
+    line-height: 1rem;
+  }
+  .admin h3 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .admin p {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  /* ******************** Sidebar ******************** */
   .sidebar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 230px;
-    height: 100%;
+    grid-area: sidebar;
     background-color: var(--main-color);
     overflow: hidden;
+    transition: all .3s ease-in-out;
+    width: 230px;
   }
   .sidebar-collapse {
     width: 60px;
   }
-  .sidebas-logo {
-    width: 230px;
+  .sidebar-logo {
+    width: 200px;
     height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 32px;
+    margin: auto;
+    margin-bottom: 2rem;
   }
-  .sidebas-logo a {
+  .sidebar-logo a {
     display: flex;
     align-items: center;
   }
+
+
+  /* ******************** Sidebar options ******************** */
   .sidebar-options {
-    height: calc(100% - 6rem);
     width: 100%;
+    height: calc(100% - 6rem);
     padding-left: var(--pd-14);
     font-size: 18px;
     display: flex;
@@ -413,10 +475,13 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     align-items: center;
     gap: 18px;
   }
+
+
+  /* ******************** Btn Sidebar settings ******************** */
   .btn-configuracion {
     background: none;
     border: none;
-    color: var(--blank-color-1);
+    color: #000;
     font-family: 'Open Sans', sans-serif;
     padding: 0;
     font-size: 18px;
@@ -443,122 +508,46 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     height: 100%;
     display: block;
     position: absolute;
-    z-index: 11;
+    z-index: 1;
     top: 0;
     left: 0;
   }
 
 
-
-  /* ******************** Header-Home ******************** !*/
-  .header-home {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 999;
-    padding-left: var(--pd-8);
-    padding-right: var(--pd-8);
-    width: calc(100% - 230px);
-    height: 3rem;
-    box-shadow: 0 1px 8px var(--white-color-4);
-    background-color: var(--white-color-1);
-  }
-  .header-container-home {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .btn-sidebar {
-    padding: var(--pd-0);
-    display: flex;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  .admin {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 3rem;
-    gap: 16px;
-  }
-  .admin > img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
-  .info-user {
-    cursor: pointer;
-    margin-right: var(--mg-16);
-    line-height: 16px;
-  }
-  .info-user h3 {
-    font-size: 14px;
-    font-weight: 600;
-  }
-  .info-user p {
-    font-size: 14px;
-  }
-  .admin-circle {
-    border-radius: 100%;
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-  }
-
-
-
-  /* ******************** Contenido-Home ******************** !*/
+  /* ******************** Container contenido-Home ******************** */
   .contenido_container {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    grid-area: contenido;
     background-color: rgba(222, 222, 222, .2);
-    width: calc(100% - 230px);
-    height: calc(100% - 3rem);
-    display: flex;
-    align-items: flex-end;
     padding: var(--pd-8);
   }
 
-  .contenido_container,
-  .header-home,
-  .sidebar {
-    transition: width .3s ease-in-out;
-  }
 
-  .header-home-collapse,
-  .contenido_container-collapse {
-    width: calc(100% - 60px);
-  }
+  /* ******************** contenido-Home ******************** */
   .contenido {
     width: 100%;
     height: 100%;
-    border-radius: 4PX;
-    /* border: 2px solid var(--blank-color-1); */
-    background-color: var(--white-color-1);
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--white-color-1);
   }
   .contenido figure {
     width: 48%;
     height: auto;
-    margin: 0;
+    margin: var(--mg-0);
   }
-  .sinclase {
+  .welcome {
     width: 48%;
     text-align: center;
   }
-  .sinclase h2 {
+  .welcome h2 {
     margin-top: var(--mg-14);
     margin-bottom: var(--mg-16);
   }
-  .sinclase button {
-    background-color: var(--main-color);
+  .welcome button {
+    background-color: var(--main-second-color);
     border: none;
-    border-radius: var(--radius-button);
+    border-radius: 4px;
     padding: var(--pd-8);
     font-size: 18px;
     font-weight: bold;
@@ -566,7 +555,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     cursor: pointer;
     transition: all 0.1s ease-in-out;
   }
-  .sinclase button:hover {
+  .welcome button:hover {
     box-shadow: 1px 1px 8px var(--white-color-4);
   }
 }
