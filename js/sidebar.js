@@ -4,11 +4,11 @@ const d = document;
 
 export const sidebarCollapse = function (btnSidebar) {
   
-  const home = d.querySelector(".sidebar");
+  const sodebar = d.querySelector(".sidebar");
   
   d.addEventListener("click", e => {
     if (e.target.matches(btnSidebar)) {
-      home.classList.toggle("sidebar-collapse");
+      sodebar.classList.toggle("sidebar-collapse");
     };
   });
 
