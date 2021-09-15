@@ -8,15 +8,15 @@
   --main-color: rgb(0, 187, 255);
   --main-second-color: rgba(0, 187, 255, 0.75);
 
-  --white-color-1: #ffffff;
-  --white-color-2: #f2f2f2;
-  --white-color-3: #e5e5e5;
-  --white-color-4: #d8d8d8;
+  --Wcolor-1: #ffffff;
+  --Wcolor-2: #f2f2f2;
+  --Wcolor-3: #e5e5e5;
+  --Wcolor-4: #d8d8d8;
 
-  --blank-color-1: #000000;
-  --blank-color-2: #0c0c0c;
-  --blank-color-3: #191919;
-  --blank-color-4: #262626;
+  --Bcolor-1: #000000;
+  --Bcolor-2: #0c0c0c;
+  --Bcolor-3: #191919;
+  --Bcolor-4: #262626;
 
   --grey-color-1: #555555;
   --grey-color-opacity: rgba(84 , 84, 84, 0.2);
@@ -56,7 +56,7 @@ html { box-sizing: border-box; font-size: 16px; line-height: 1.6; scroll-behavio
 *::before,
 *::after { box-sizing: inherit; }
 
-body { min-width: 320px; margin: var(--mg-0); overflow-x: hidden; text-rendering: optimizeSpeed; font-family: 'Open Sans', sans-serif; color: var(--blank-color-1); }
+body { min-width: 320px; margin: var(--mg-0); overflow-x: hidden; text-rendering: optimizeSpeed; font-family: 'Open Sans', sans-serif; color: var(--Bcolor-1); }
 
 h1 { margin: var(--mg-0); font-size: 2rem; }
 h2 { margin: var(--mg-0); font-size: 1.5rem; }
@@ -72,7 +72,7 @@ ul { list-style: none; margin: var(--mg-0); padding: var(--pd-0); }
 
 th, td { padding: var(--pd-0); }
 
-a { text-decoration: none; transition-property: background, opacity; transition-duration: 0.3s; transition-timing-function: ease-in-out;}
+a { text-decoration: none; transition-property: box-shadow, background, opacity; transition-duration: 0.3s; transition-timing-function: ease-in-out;}
 
 [id] { scroll-margin-top: 2ex; }
 
@@ -88,8 +88,8 @@ a { text-decoration: none; transition-property: background, opacity; transition-
   position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: -1px 1px 6px var(--white-color-4);
-  background-color: var(--white-color-1);
+  box-shadow: -1px 1px 6px var(--Wcolor-4);
+  background-color: var(--Wcolor-1);
 }
 .header_container {
   max-width: 1200px;
@@ -105,6 +105,8 @@ a { text-decoration: none; transition-property: background, opacity; transition-
   display: flex;
   align-items: center;
 }
+
+/* ******************** Menu-mobile ******************** */
 .menu {
   display: none;
 }
@@ -125,7 +127,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
 .hamburger a {
   text-align: center;
   width: 80%;
-  color: var(--blank-color-1);
+  color: var(--Bcolor-1);
   font-weight: bold;
   padding: var(--pd-8);
   margin-top: var(--mg-4);
@@ -167,13 +169,18 @@ a { text-decoration: none; transition-property: background, opacity; transition-
 .reglog {
   min-width: 300px;
   height: 400px;
-  background-color: var(--white-color-1);
+  background-color: var(--Wcolor-1);
   border-radius: 8px;
   display: flex;
 }
+
+/* ******************** Ilustracion-mobile ******************** */
 .illustration-reglog {
   display: none;
 }
+
+
+/* ******************** Formulario-mobile ******************** */
 .form-reglog {
   width: 100%;
   display: flex;
@@ -192,7 +199,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
 .reglog-email, 
 .reglog-contraseña, 
 .reglog-nombre {
-  background-color: var(--white-color-2);
+  background-color: var(--Wcolor-2);
   border-style: none;
   width: 100%;
   font-size: 16px;
@@ -214,7 +221,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
   font-weight: bold;
   border-style: none;
   border-radius: var(--radius-button);
-  color: var(--white-color-1);
+  color: var(--Wcolor-1);
   padding: var(--pd-8);
   margin-top: var(--mg-8);
   margin-bottom: var(--mg-8);
@@ -232,21 +239,10 @@ a { text-decoration: none; transition-property: background, opacity; transition-
 
 
 
-
-
-
-/*! ******************** Home Mobile******************** !*/
-
-
-
-
-
-
-
-/*! ******************** Media Queries ******************** !*/
+/*! ******************** min-width: 480px ******************** !*/
 @media screen and (min-width: 480px)
 {
-  /*! ******************** Login and Register Mobile ******************** !*/
+  /* ******************** Formulario-mobile ******************** */
   .reglog {
     min-width: 400px;
   }
@@ -257,16 +253,33 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     font-size: 14px;
   }
 }
+
+
+
+/*! ******************** min-width: 600px ******************** !*/
 @media screen and (min-width: 600px)
 {
+
 }
+
+
+
+/*! ******************** min-width: 768px ******************** !*/
 @media screen and (min-width: 768px)
 {
-  /*! ******************** Login and Register Mobile ******************** !*/
+  /* ******************** Formulario-mobile,tablet ******************** */
   .reglog {
     min-width: 600px;
     height: 500px;
   }
+  .form-reglog {
+    width: 300px;
+  }
+  .form-reglog form {
+    width: 260px;
+  }
+
+  /* ******************** Ilustracion-mobile,tablet ******************** */
   .illustration-reglog {
     display: block;
   }
@@ -279,15 +292,13 @@ a { text-decoration: none; transition-property: background, opacity; transition-
   .illustration-reglog img {
     width: 100%;
   }
-  .form-reglog {
-    width: 300px;
-  }
-  .form-reglog form {
-    width: 260px;
-  }
-}
+} 
+
+
+/*! ******************** min-width: 1024px ******************** !*/
 @media screen and (min-width: 1024px)
 {
+  /* ******************** Header desktop ******************** */
   .header {
     height: 4rem;
   }
@@ -306,7 +317,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
   .menu a {
     margin-left: var(--mg-8);
     margin-right: var(--mg-8);
-    color: var(--blank-color-1);
+    color: var(--Bcolor-1);
     padding: var(--pd-4);
   }
   .menu a:last-child {
@@ -320,8 +331,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
   }
 
 
-
-  /*! ******************** Login and Register ******************** !*/
+  /* ******************** login and register ******************** */
   .container-reglog{
     height: calc(100vh - 4rem);
   }
@@ -338,9 +348,6 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     width: 320px;
   }
   
-
-
-
 
 
   /*! ******************** Home ******************** !*/
@@ -363,8 +370,8 @@ a { text-decoration: none; transition-property: background, opacity; transition-
   /* ******************** Header-Home ******************** */
   .header-home {
     grid-area: header;
-    background-color: var(--white-color-1);
-    box-shadow: 0 1px 8px var(--white-color-4);
+    background-color: var(--Wcolor-1);
+    box-shadow: 0 1px 8px var(--Wcolor-4);
     z-index: 999;
 
     display: flex;
@@ -412,6 +419,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     font-weight: 400;
   }
 
+  
   /* ******************** Sidebar ******************** */
   .sidebar {
     grid-area: sidebar;
@@ -464,10 +472,10 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     height: 24px;
   }
   .sidebar-options li:hover {
-    background-color: var(--white-color-1);
+    background-color: var(--Wcolor-1);
   }
   .sidebar-options a {
-    color: var(--blank-color-1);
+    color: var(--Bcolor-1);
     font-size: 18px;
     font-weight: 600;
     width: 100%;
@@ -481,7 +489,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
   .btn-configuracion {
     background: none;
     border: none;
-    color: #000;
+    color: var(--Bcolor-1);
     font-family: 'Open Sans', sans-serif;
     padding: 0;
     font-size: 18px;
@@ -497,7 +505,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     position: relative;
   }
   .btn-configuracion:hover {
-    background-color: var(--white-color-1);
+    background-color: var(--Wcolor-1);
   }
   .btn-configuracion img {
     width: 24px;
@@ -529,7 +537,7 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--white-color-1);
+    background-color: var(--Wcolor-1);
   }
   .contenido figure {
     width: 48%;
@@ -551,18 +559,26 @@ a { text-decoration: none; transition-property: background, opacity; transition-
     padding: var(--pd-8);
     font-size: 18px;
     font-weight: bold;
-    color: var(--white-color-1);
+    color: var(--Wcolor-1);
     cursor: pointer;
     transition: all 0.1s ease-in-out;
   }
   .welcome button:hover {
-    box-shadow: 1px 1px 8px var(--white-color-4);
+    box-shadow: 1px 1px 8px var(--Wcolor-4);
   }
 }
+
+
+
+/*! ******************** min-width: 1200px ******************** !*/
 @media screen and (min-width: 1200px)
 {
   
 }
+
+
+
+/*! ******************** min-width: 1400px ******************** !*/
 @media screen and (min-width: 1400px)
 {
   
