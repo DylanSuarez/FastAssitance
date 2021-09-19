@@ -539,33 +539,6 @@ a { text-decoration: none; transition-property: box-shadow, background, opacity;
     justify-content: center;
     background-color: var(--Wcolor-1);
   }
-  .contenido figure {
-    width: 48%;
-    height: auto;
-    margin: var(--mg-0);
-  }
-  .welcome {
-    width: 48%;
-    text-align: center;
-  }
-  .welcome h2 {
-    margin-top: var(--mg-14);
-    margin-bottom: var(--mg-16);
-  }
-  .welcome button {
-    background-color: var(--main-second-color);
-    border: none;
-    border-radius: 4px;
-    padding: var(--pd-8);
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--Wcolor-1);
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-  }
-  .welcome button:hover {
-    box-shadow: 1px 1px 8px var(--Wcolor-4);
-  }
 }
 
 
