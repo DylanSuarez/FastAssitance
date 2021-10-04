@@ -362,7 +362,6 @@ a { text-decoration: none; transition-property: box-shadow, background, opacity;
     grid-template-rows: 48px 1fr;
     grid-template-areas: 
     "sidebar header"
-    "sidebar contenido"
     "sidebar contenido";
   }
 
