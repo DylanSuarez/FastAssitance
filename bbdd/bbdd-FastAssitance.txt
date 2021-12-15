@@ -1,0 +1,157 @@
+SET FOREIGN_KEY_CHECKS=0;
+SET GLOBAL FOREIGN_KEY_CHECKS=0;
+
+CREATE SCHEMA IF NOT EXISTS `FastAssitance` DEFAULT CHARACTER SET utf8;
+USE `FastAssitance`;
+
+CREATE TABLE IF NOT EXISTS `Facultades` (
+  `id_facultad` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_facultad`)
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Alumnos` (
+  `id_huella_alumno` INT NOT NULL AUTO_INCREMENT,
+  `id_facultad` INT NOT NULL,
+  `nombre_alumno` VARCHAR(45) NOT NULL,
+  `apellido_alumno` VARCHAR(45) NOT NULL,
+  `telefono_alumno` INT NOT NULL,
+  `email_alumno` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_huella_alumno`),
+  INDEX `fk_Alumno_Facultad1_idx` (`id_facultad` ASC),
+  CONSTRAINT `fk_Alumno_Facultad1`
+    FOREIGN KEY (`id_facultad`)
+    REFERENCES `Facultades` (`id_facultad`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Docentes` (
+  `id_docente` INT NOT NULL AUTO_INCREMENT,
+  `id_facultad` INT NOT NULL,
+  `nombre_docente` VARCHAR(45) NOT NULL,
+  `apellido_docente` VARCHAR(45) NOT NULL,
+  `telefono_docente` INT NOT NULL,
+  `emai_docente` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_docente`),
+  INDEX `fk_Docente_Facultad_idx` (`id_facultad` ASC),
+  CONSTRAINT `fk_Docente_Facultad`
+    FOREIGN KEY (`id_facultad`)
+    REFERENCES `Facultades` (`id_facultad`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Cursos` (
+  `id_curso` INT NOT NULL AUTO_INCREMENT,
+  `id_docente` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `horario` TIME NOT NULL,
+  PRIMARY KEY (`id_curso`),
+  INDEX `fk_Curso_Docente1_idx` (`id_docente` ASC),
+  CONSTRAINT `fk_Curso_Docente1`
+    FOREIGN KEY (`id_docente`)
+    REFERENCES `Docentes` (`id_docente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Alumno_por_Curso` (
+  `id_huella_alumno` INT NOT NULL,
+  `id_curso` INT NOT NULL,
+  INDEX `fk_Alumno_has_Curso_Curso1_idx` (`id_curso` ASC),
+  INDEX `fk_Alumno_has_Curso_Alumno1_idx` (`id_huella_alumno` ASC),
+  PRIMARY KEY (`id_huella_alumno`, `id_curso`),
+  CONSTRAINT `fk_Alumno_has_Curso_Alumno1`
+    FOREIGN KEY (`id_huella_alumno`)
+    REFERENCES `Alumnos` (`id_huella_alumno`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Alumno_has_Curso_Curso1`
+    FOREIGN KEY (`id_curso`)
+    REFERENCES `Cursos` (`id_curso`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+explain facultades;
+insert into facultades (id_facultad, nombre) values
+(101, 'Electrónica'),
+(102, 'Sistemas'),
+(103, 'Industrial');
+select * from facultades;
+
+explain alumnos;
+insert into alumnos (id_huella_alumno, id_facultad, nombre_alumno, apellido_alumno, telefono_alumno, email_alumno) values 
+(1201, 101 ,'Andrés','Quijano', 7222922, 'aquijano@uni.com.co'),
+(1202, 102 ,'William ','Hortua', 9000321, 'whortua@uni.com.co'),
+(1203, 103 ,'Andrea ','Pérez', 3340543, 'aperez@uni.com.co'),
+(1204, 102 ,'Willard ','Smith', 5487223, 'wsmith@uni.com.co'),
+(1205, 102 ,'Alfonso ','Ribeiro', 2151509, 'aribeiro@uni.com.co'),
+(1206, 101 ,'Diego ','Gabriel', 9309767, 'dgabriel@uni.com.co'),
+(1207, 102 ,'Enrique ','Arce', 9444172, 'earce@uni.com.co'),
+(1208, 102 ,'Jorge ','Lopez', 1136474, 'jlopez@uni.com.co'),
+(1209, 103 ,'Jaime ','Lopez', 3630211, 'alopez@uni.com.co'),
+(1210, 101 ,'Francis ','Trenidad', 4548904, 'ftrinidad@uni.com.co');
+select * from alumnos;
+
+
+explain docentes;
+insert into docentes (id_docente, id_facultad, nombre_docente, apellido_docente, telefono_docente, emai_docente) value
+(2001, 101, 'Alejandro', 'Marín', 4326109, 'amarin@uni.com.co'),
+(2002, 103, 'Oscar', 'Pérez', 3405954, 'operez@uni.com.co'),
+(2003, 102, 'David', 'Gaitán', 2340500, 'dgaitan@uni.com.co'),
+(2004, 103, 'Álvaro', 'Antonio', 2340500, 'aantonio@uni.com.co'),
+(2005, 101, 'Itzan', 'Escamilla', 2340500, 'iescamilla@uni.com.co'),
+(2006, 102, 'James', 'Rue', 2340500, 'jrue@uni.com.co'),
+(2007, 102, 'Victor', 'Castro', 2340500, 'vcastro@uni.com.co'),
+(2008, 103, 'Carolina', 'Vélez', 5452934, 'cvelez@uni.com.co');
+select * from docentes;
+
+
+explain cursos;
+insert into cursos (id_curso, id_docente, nombre,horario) values
+(1201, 2001, 'Matemáticas 2', '06:00:00'),
+(1202, 2002, 'Algoritmos', '08:00:00'),
+(1203, 2001, 'Física', '10:00:00'),
+(1204, 2003, 'Ingles 3', '12:00:00'),
+(1205, 2004, 'Investigación 1', '14:00:00'),
+(1206, 2004, 'Dibujo', '16:00:00');
+select * from cursos;
+
+
+explain Alumno_por_Curso;
+insert into Alumno_por_Curso (id_huella_alumno, id_curso) values
+(1001, 1201),
+(1002, 1202),
+(1001, 1203),
+(1002, 1204),
+(1003, 1205),
+(1003, 1206);
+select * from Alumno_por_Curso;
+
+
+
+-- Cosultar el apellido y email de los docentes que pertenezcan a la facultad  con id '102'
+select nombre_docente, apellido_docente, emai_docente from docentes where id_facultad = '102';
+
+-- Consultar el nombre y apellido de los alumnos que pertenezcan a la facultad con id '103' 
+select nombre_alumno, apellido_alumno from alumnos where id_facultad = '103';
+
+
+-- Consultar la facultad de los alumnos
+select * from alumnos inner join facultades on alumnos.id_facultad=facultades.id_facultad;
+
+select alumnos.nombre_alumno, alumnos.apellido_alumno, facultades.nombre from alumnos inner join facultades on alumnos.id_facultad=facultades.id_facultad; 
+
+select alumnos.nombre_alumno, alumnos.apellido_alumno, facultades.nombre from alumnos inner join
+facultades on alumnos.id_facultad=facultades.id_facultad where facultades.nombre='sistemas';
+
+-- Consultar el alumno que tenga clase en el curso '1204' y que horarios tiene.
+
+ select Alumno_por_Curso.id_huella_alumno, cursos.horario from Alumno_por_Curso inner join cursos on Alumno_por_Curso.id_curso = '1204';
